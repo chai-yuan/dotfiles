@@ -12,5 +12,5 @@ opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 opt.cursorline = true -- Enable highlighting of the current line
 opt.expandtab = true -- Use spaces instead of tabs
 opt.foldlevel = 99
-opt.number = true -- Print line number
+opt.relativenumber = true
 opt.showmode = false -- Dont show mode since we have a statusline
