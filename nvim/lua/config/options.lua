@@ -21,6 +21,9 @@ opt.smartindent = true -- 智能缩进
 opt.completeopt = { "menuone", "noselect" } -- 设置补全选项
 opt.ignorecase = true -- 搜索时忽略大小写
 opt.smartcase = true -- 如果搜索包含大写字母，则区分大小写
+opt.foldlevel = 99 -- 在当前缓冲区中设置 foldlevel 为 99
+vim.wo.foldmethod = 'expr'  -- 配置代码折叠
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 
 -- 文件和缓冲区设置
 opt.autowrite = true -- 自动保存

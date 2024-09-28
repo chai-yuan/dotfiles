@@ -9,6 +9,23 @@ return {
         ensure_installed = { "c", "lua" },
         highlight = {
             enable = true,
+            -- 注意：这些是解析器的名称，而不是文件类型。（例如，如果你想禁用 `tex` 文件类型的语法高亮，你需要在这个列表中包含 `latex`，因为这是解析器的名称）
+            -- 将被禁用的语言列表
+            disable = { "c", "rust" },
+            -- 或者使用一个函数以获得更大的灵活性，例如，禁用大文件的慢速 treesitter 高亮
+            disable = function(lang, buf)
+                local max_filesize = 100 * 1024 -- 100 KB
+                local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+                if ok and stats and stats.size > max_filesize then
+                return true
+                end
+            end,
+
+            -- 设置为 true 将同时运行 `:h syntax` 和 tree-sitter。
+            -- 如果你依赖于 'syntax' 的启用（例如用于缩进），请将此设置为 `true`。
+            -- 使用此选项可能会减慢你的编辑器速度，并且你可能会看到一些重复的高亮。
+            -- 除了 true，它还可以是一个语言列表
+            additional_vim_regex_highlighting = false,
         },
         indent = {
             enable = true,
