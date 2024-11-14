@@ -2,7 +2,7 @@
   description = "mydotfiles";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
   };
 
   outputs = { self, nixpkgs }:
@@ -12,9 +12,11 @@
       devShells.x86_64-linux.default =
         pkgs.mkShell {
           name = "isolated-dev";
+
           buildInputs = with pkgs; [
             neovim
           ];
+
           shellHook = ''
             echo "Welcome to the isolated development environment!"
           '';
