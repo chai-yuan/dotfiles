@@ -24,13 +24,16 @@ return {
         vim.keymap.set('n', '<leader>da', "<cmd>lua require('telescope.builtin').diagnostics()<cr>", {desc = '[D]i[A]gnostics'})
         vim.keymap.set('n', "<leader>fm", function() vim.lsp.buf.format {} end, {desc = "[F]ormat code"})
 
-        -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-        local servers = { 'clangd', 'lua_ls' }
-        for _, lsp in ipairs(servers) do
-            lspconfig[lsp].setup {
-                -- on_attach = on_attach,
-                capabilities = capabilities,
-            }
-        end
+        -- 各种语言服务器的配置
+        lspconfig.clangd.setup {
+            cmd = {
+                "clangd",
+                "--header-insertion=never"
+            },
+            capabilities = capabilities,
+        }
+        lspconfig.lua_ls.setup {
+            capabilities = capabilities,
+        }
     end
 }
