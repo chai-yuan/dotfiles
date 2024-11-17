@@ -35,6 +35,6 @@ require("lazy").setup({
   -- 在这里配置其他设置。查看文档获取更多详细信息。
   -- 安装插件时使用的配色方案。
   install = { colorscheme = { "habamax" } },
-  -- 自动检查插件更新
-  checker = { enabled = true },
+  -- 关闭自动检查插件更新
+  checker = { enabled = false },
 })

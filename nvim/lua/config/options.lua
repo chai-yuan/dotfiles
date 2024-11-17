@@ -6,7 +6,7 @@ opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus"
 
 -- 界面设置
 opt.cursorline = true -- 高亮当前行
-opt.showmode = false -- 不显示模式，因为我们有状态栏
+-- opt.showmode = false -- 不显示模式，因为我们有状态栏
 opt.termguicolors = true -- 启用终端真彩色
 
 -- 编辑设置
