@@ -16,9 +16,9 @@
         pkgs.mkShell {
           name = "isolated-dev";
 
-          buildInputs = with pkgs; [
+          buildInputs = [
             crPkgs.neovim
-	    lua-language-server
+            pkgs.lua-language-server
           ];
 
           shellHook = ''
