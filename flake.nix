@@ -1,5 +1,5 @@
 {
-  description = "mydotfiles";
+  description = "my system packages collection";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
@@ -12,18 +12,17 @@
       pkgs = import nixpkgs { inherit system; };
       crPkgs = crpkgs.packages.${system};
     in {
-      devShells.x86_64-linux.default =
-        pkgs.mkShell {
-          name = "isolated-dev";
+        packages.x86_64-linux = {
 
-          buildInputs = [
-            crPkgs.neovim
-            pkgs.lua-language-server
-          ];
+            my-package = pkgs.buildEnv {
+                name = "my-package-collection";
+                paths = [
+                    crPkgs.neovim
+                    pkgs.lua-language-server
+                    # Add more packages as needed
+                ];
+            };
 
-          shellHook = ''
-            echo "Welcome to the isolated development environment!"
-          '';
         };
     };
 }
