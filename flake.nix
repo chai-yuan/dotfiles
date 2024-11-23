@@ -24,6 +24,7 @@
           name = "my-package-collection";
           paths = [
             crPkgs.neovim
+            pkgs.nerdfonts
             pkgs.lua-language-server
             pkgs.nixd
             pkgs.nixfmt-rfc-style
