@@ -2,20 +2,20 @@
   description = "my system packages collection";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    crpkgs.url = "github:chai-yuan/crpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    crPkgs.url = "github:chai-yuan/crpkgs";
   };
 
   outputs =
     {
       self,
       nixpkgs,
-      crpkgs,
+      crPkgs,
     }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs { inherit system; };
-      crPkgs = crpkgs.packages.${system};
+      crpkgs = crPkgs.packages.${system};
     in
     {
       packages.x86_64-linux = {
@@ -23,7 +23,7 @@
         my-package = pkgs.buildEnv {
           name = "my-package-collection";
           paths = [
-            crPkgs.neovim
+            crpkgs.neovim
             pkgs.nerdfonts
             pkgs.lua-language-server
             pkgs.nixd
