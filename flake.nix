@@ -14,14 +14,17 @@
     }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
       crpkgs = crPkgs.packages.${system};
     in
     {
       packages.x86_64-linux = {
 
-        my-package = pkgs.buildEnv {
-          name = "my-package-collection";
+        basic-tools = pkgs.buildEnv {
+          name = "Basic tools";
           paths = [
             crpkgs.neovim
             pkgs.nerdfonts
@@ -29,6 +32,13 @@
             pkgs.nixd
             pkgs.nixfmt-rfc-style
             pkgs.htop
+          ];
+        };
+
+        desktop-applications = pkgs.buildEnv {
+          name = "desktop-applications";
+          paths = [
+            pkgs.qq
           ];
         };
 
