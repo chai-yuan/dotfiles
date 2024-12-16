@@ -11,6 +11,7 @@ opt.termguicolors = true -- 启用终端真彩色
 
 -- 编辑设置
 opt.relativenumber = true -- 显示相对行号
+opt.number = true         -- 显示当前行的绝对行号
 opt.backspace = { "indent", "eol", "start" } -- 设置退格键行为
 opt.tabstop = 4 -- 设置制表符宽度为4个空格
 opt.shiftwidth = 4 -- 设置缩进宽度为4个空格
