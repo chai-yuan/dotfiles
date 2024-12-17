@@ -27,11 +27,11 @@
           name = "Basic tools";
           paths = [
             crpkgs.neovim
+            pkgs.ripgrep
             pkgs.nerdfonts
             pkgs.lua-language-server
             pkgs.nixd
             pkgs.nixfmt-rfc-style
-            pkgs.htop
           ];
         };
 
