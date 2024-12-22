@@ -7,8 +7,10 @@ declare -A DOTFILES
 DOTFILES=(
     ["nvim"]="$HOME_DIR/.config/nvim"
     ["nix"]="$HOME_DIR/.config/nix"
-    ["clang-format"]="$HOME_DIR/.clang-format"
     ["fontconfig"]="$HOME_DIR/.config/fontconfig"
+
+    ["clang-format"]="$HOME_DIR/.clang-format"
+    ["gitconfig"]="$HOME_DIR/.gitconfig"
     # 你可以在这里添加更多的 dotfiles
 )
 
