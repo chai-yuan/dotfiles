@@ -1,3 +1,13 @@
 [user]
 	email = charain_li@outlook.com
 	name = charain
+[alias]
+	lg = log --oneline --decorate --graph --all
+	co = checkout
+	br = branch
+	cm = commit
+	st = status
+	rs = restore
+	amend = commit --amend
+[core]
+	editor = nvim
