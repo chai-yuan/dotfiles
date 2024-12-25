@@ -6,7 +6,7 @@ return {
     main = "nvim-treesitter.configs",
     build = ":TSUpdate",
     opts = {
-        ensure_installed = { "c", "lua" },
+        ensure_installed = { "c", "lua", "scala" },
         highlight = {
             enable = true,
             -- 注意：这些是解析器的名称，而不是文件类型。（例如，如果你想禁用 `tex` 文件类型的语法高亮，你需要在这个列表中包含 `latex`，因为这是解析器的名称）

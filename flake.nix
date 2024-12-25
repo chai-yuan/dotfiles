@@ -27,6 +27,7 @@
           name = "Basic tools";
           paths = [
             crpkgs.neovim
+            pkgs.python3
             pkgs.ripgrep
             pkgs.nerdfonts
             pkgs.lua-language-server
