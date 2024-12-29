@@ -26,21 +26,23 @@
         basic-tools = pkgs.buildEnv {
           name = "Basic tools";
           paths = [
-            crpkgs.neovim
-            pkgs.python3
-            pkgs.ripgrep
+            pkgs.neovim
             pkgs.nerdfonts
+            pkgs.ripgrep
+            pkgs.python3
             pkgs.lua-language-server
             pkgs.nixd
             pkgs.nixfmt-rfc-style
+            pkgs.xclip
+            pkgs.xsel
           ];
         };
 
         desktop-applications = pkgs.buildEnv {
           name = "desktop-applications";
-          paths = [
-            pkgs.qq
-          ];
+          paths =
+            [
+            ];
         };
 
       };
