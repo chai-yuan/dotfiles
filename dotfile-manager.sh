@@ -8,6 +8,7 @@ DOTFILES=(
     ["nvim"]="$HOME_DIR/.config/nvim"
     ["nix"]="$HOME_DIR/.config/nix"
     ["fontconfig"]="$HOME_DIR/.config/fontconfig"
+    ["gdb"]="$HOME_DIR/.config/gdb"
 
     ["clang-format"]="$HOME_DIR/.clang-format"
     ["gitconfig"]="$HOME_DIR/.gitconfig"
