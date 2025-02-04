@@ -11,3 +11,5 @@
 	amend = commit --amend
 [core]
 	editor = nvim
+[pull]
+	rebase = false
