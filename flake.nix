@@ -35,14 +35,14 @@
             pkgs.nixfmt-rfc-style
             pkgs.xclip
             pkgs.xsel
+            pkgs.typst
           ];
         };
 
         desktop-applications = pkgs.buildEnv {
           name = "desktop-applications";
-          paths =
-            [
-            ];
+          paths = [
+          ];
         };
 
       };
