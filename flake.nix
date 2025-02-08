@@ -29,12 +29,24 @@
             pkgs.neovim
             pkgs.nerdfonts
             pkgs.ripgrep
-            pkgs.python3
-            pkgs.lua-language-server
-            pkgs.nixd
-            pkgs.nixfmt-rfc-style
             pkgs.xclip
             pkgs.xsel
+          ];
+        };
+
+        develop-tools = pkgs.buildEnv {
+          name = "Develop tools";
+          paths = [
+            #python
+            pkgs.python3
+            # lua
+            pkgs.lua-language-server
+            # nix
+            pkgs.nixd
+            pkgs.nixfmt-rfc-style
+            # others
+            pkgs.qemu
+            pkgs.spike
             pkgs.typst
           ];
         };
