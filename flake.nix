@@ -54,6 +54,7 @@
         desktop-applications = pkgs.buildEnv {
           name = "desktop-applications";
           paths = [
+            pkgs.gtkwave
           ];
         };
 
