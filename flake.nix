@@ -55,6 +55,7 @@
           name = "desktop-applications";
           paths = [
             pkgs.gtkwave
+            pkgs.wine
           ];
         };
 
