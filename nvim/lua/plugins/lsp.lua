@@ -49,5 +49,8 @@ return {
             },
             capabilities = capabilities,
         }
+        lspconfig.metals.setup {
+            capabilities = capabilities,
+        }
     end
 }
