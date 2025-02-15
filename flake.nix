@@ -31,6 +31,7 @@
             pkgs.ripgrep
             pkgs.xclip
             pkgs.xsel
+            pkgs.lazygit
           ];
         };
 
