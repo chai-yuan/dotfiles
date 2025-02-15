@@ -25,24 +25,43 @@ help() {
     echo "Usage: $0 {install|uninstall|help}"
     echo ""
     echo "Commands:"
-    echo "  install    - Create symbolic links for all dotfiles."
-    echo "  uninstall  - Remove symbolic links for all dotfiles."
-    echo "  help       - Display this help message."
+    echo "  install    - 创建所有 dotfiles 的符号链接并配置 .bashrc"
+    echo "  uninstall  - 移除所有 dotfiles 的符号链接"
+    echo "  help       - 显示帮助信息"
 }
 
 # 安装 dotfiles
 install() {
+    # 创建符号链接
     for dotfile in "${!DOTFILES[@]}"; do
         src="$CURRENT_DIR/$dotfile"
         dest="${DOTFILES[$dotfile]}"
 
         if [ -e "$dest" ]; then
-            echo -e "${YELLOW}Warning: $dest already exists. Skipping.${NC}"
+            echo -e "${YELLOW}警告: $dest 已存在，跳过。${NC}"
         else
-            echo -e "${GREEN}Creating symlink for $dotfile...${NC}"
+            echo -e "${GREEN}为 $dotfile 创建符号链接...${NC}"
             ln -s "$src" "$dest"
         fi
     done
+
+    # 配置 .bashrc
+    BASH_SOURCE_FILE="bash_config"  # 当前目录下的配置文件名称
+    SOURCE_LINE="source \"$CURRENT_DIR/$BASH_SOURCE_FILE\""
+    BASH_RC="$HOME_DIR/.bashrc"
+    # 确保 .bashrc 存在
+    if [ ! -f "$BASH_RC" ]; then
+        echo -e "${YELLOW}.bashrc 不存在，创建中...${NC}"
+        touch "$BASH_RC"
+    fi
+    # 检查并添加 source 命令
+    if grep -Fqx "$SOURCE_LINE" "$BASH_RC"; then
+        echo -e "${YELLOW}.bashrc 中已存在配置行，跳过。${NC}"
+    else
+        echo -e "${GREEN}向 .bashrc 添加配置行...${NC}"
+        echo "$SOURCE_LINE" >> "$BASH_RC"
+        echo -e "${GREEN}建议重新加载配置: source ~/.bashrc${NC}"
+    fi
 }
 
 # 卸载 dotfiles
@@ -51,10 +70,10 @@ uninstall() {
         dest="${DOTFILES[$dotfile]}"
 
         if [ -L "$dest" ]; then
-            echo -e "${GREEN}Removing symlink for $dotfile...${NC}"
+            echo -e "${GREEN}移除 $dotfile 的符号链接...${NC}"
             rm "$dest"
         else
-            echo -e "${YELLOW}Warning: $dest is not a symlink. Skipping.${NC}"
+            echo -e "${YELLOW}警告: $dest 不是符号链接，跳过。${NC}"
         fi
     done
 }
@@ -71,7 +90,7 @@ case "$1" in
         help
         ;;
     *)
-        echo -e "${YELLOW}Invalid command. Use 'help' for usage information.${NC}"
+        echo -e "${YELLOW}无效命令，使用 'help' 查看帮助信息。${NC}"
         exit 1
         ;;
 esac
