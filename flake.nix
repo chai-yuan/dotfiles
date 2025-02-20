@@ -28,6 +28,7 @@
           paths = [
             pkgs.neovim
             pkgs.nerdfonts
+            pkgs.tree
             pkgs.ripgrep
             pkgs.xclip
             pkgs.xsel
