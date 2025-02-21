@@ -49,6 +49,12 @@ return {
             },
             capabilities = capabilities,
         }
+        lspconfig.verible.setup {
+            capabilities = capabilities,
+            root_dir = function(fname)
+                return require("lspconfig.util").find_git_ancestor(fname)
+            end,
+        }
         lspconfig.metals.setup {
             capabilities = capabilities,
         }
