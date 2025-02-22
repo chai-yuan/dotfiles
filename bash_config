@@ -1,1 +1,3 @@
 alias vi='nvim'
+
+export OLLAMA_ORIGINS="*"
