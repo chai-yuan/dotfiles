@@ -27,6 +27,7 @@
           name = "Basic tools";
           paths = [
             pkgs.neovim
+            pkgs.vscode
             pkgs.nerdfonts
             pkgs.tree
             pkgs.ripgrep
