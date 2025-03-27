@@ -49,9 +49,8 @@ return {
             },
             capabilities = capabilities,
         }
-        -- metals 使用专用插件提供支持
-        -- lspconfig.metals.setup {
-        --     capabilities = capabilities,
-        -- }
+        lspconfig.metals.setup {
+            capabilities = capabilities,
+        }
     end
 }
