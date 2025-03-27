@@ -49,14 +49,9 @@ return {
             },
             capabilities = capabilities,
         }
-        lspconfig.verible.setup {
-            capabilities = capabilities,
-            root_dir = function(fname)
-                return require("lspconfig.util").find_git_ancestor(fname)
-            end,
-        }
-        lspconfig.metals.setup {
-            capabilities = capabilities,
-        }
+        -- metals 使用专用插件提供支持
+        -- lspconfig.metals.setup {
+        --     capabilities = capabilities,
+        -- }
     end
 }
